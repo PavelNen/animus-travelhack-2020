@@ -1,6 +1,9 @@
 import { makeStyles } from '@material-ui/core/styles'
 import React from 'react'
 
+/* Components */
+import Geolocation from './Geolocation'
+
 const useStyles = makeStyles(theme => ({
   root: {
     width: 'auto',
@@ -59,7 +62,7 @@ const Header = props => {
         ANIMUS OKO
       </div>
       <div className={classes.rightComponent}>
-        Ohh..
+        <Geolocation />
       </div>
     </header>
   )
