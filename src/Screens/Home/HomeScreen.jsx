@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import ReactSwipe from 'react-swipe'
 import { CardList } from '../../Components/AppStore/CardList'
+import { Form } from '../../Components/Form/Form'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -38,7 +39,7 @@ const HomeScreen = () => {
         ref={el => (reactSwipeEl = el)}
       >
         <Container maxWidth="md" className={classes.root}>
-          ONE
+          <Form />
         </Container>
         <Container maxWidth="md" className={classes.root}>
           <div className="container">
