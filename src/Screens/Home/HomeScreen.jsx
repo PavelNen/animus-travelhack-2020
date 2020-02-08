@@ -4,16 +4,16 @@ import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import ReactSwipe from 'react-swipe'
-import { CardList } from '../../Components/AppStore/CardList'
+import { CardList } from 'Components/AppStore/CardList'
 
 const useStyles = makeStyles(theme => ({
   root: {
-    height: '70vh',
-    overflow: 'auto',
-    paddingTop: theme.spacing(2),
-    paddingBottom: theme.spacing(2),
-    display: 'flex',
-    flexDirection: 'column',
+    height: '100%',
+    width: '100vw',
+  },
+  containerScreen: {
+    height: '100%',
+    padding: theme.spacing(2),
   }
 }))
 
@@ -32,28 +32,45 @@ const HomeScreen = () => {
 
   return (
     <Fragment>
+      <CssBaseline/>
       <ReactSwipe
-        className="carousel"
+        className={`${classes.root}`}
+        style={{
+          container: {
+            overflow: 'hidden',
+            visibility: 'hidden',
+            position: 'relative'
+          },
+          wrapper: {
+            overflow: 'hidden',
+            height: '100%',
+            position: 'relative'
+          },
+          child: {
+            float: 'left',
+            width: '100%',
+            position: 'relative',
+            transitionProperty: 'transform'
+          }
+        }}
         swipeOptions={{ continuous: false }}
         ref={el => (reactSwipeEl = el)}
       >
-        <Container maxWidth="md" className={classes.root}>
+        <div className={classes.containerScreen}>
           ONE
-        </Container>
-        <Container maxWidth="md" className={classes.root}>
+        </div>
+        <div className={classes.containerScreen}>
           <div className="container">
-            {/* <Header /> */}
+            {/* <Headerrrr /> */}
             <CardList/>
           </div>
-        </Container>
-        <Container maxWidth="md" className={classes.root}>
+        </div>
+        <div className={classes.containerScreen}>
           THREE
-        </Container>
+        </div>
       </ReactSwipe>
-      <button onClick={() => reactSwipeEl.prev()}>Назад</button>
-      <button onClick={() => reactSwipeEl.next()}>Вперёд</button>
-      <CssBaseline/>
-
+      {/* <button onClick={() => reactSwipeEl.prev()}>Назад</button> */}
+      {/* <button onClick={() => reactSwipeEl.next()}>Вперёд</button> */}
     </Fragment>
   )
 }

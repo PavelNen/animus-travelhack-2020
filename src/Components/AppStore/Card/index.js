@@ -12,7 +12,7 @@ import { Title } from './Title'
 
 // Distance in pixels a user has to scroll a card down before we recognise
 // a swipe-to dismiss action.
-const dismissDistance = 150
+const dismissDistance = 60
 
 export const Card = memo(
   ({
