@@ -21,7 +21,7 @@ const RootScreen = () => {
         <Route path={routes.getFavorites()} component={FavoritesScreen}/>
       </Switch>
     </Suspense>
-    <BottomNavigation/>
+    {/*<BottomNavigation/>*/}
   </Fragment>
 }
 

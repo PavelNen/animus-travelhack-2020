@@ -182,19 +182,6 @@ export default function PrimarySearchAppBar () {
           <Typography className={classes.title} variant="h6" noWrap>
             Travelus
           </Typography>
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon/>
-            </div>
-            <InputBase
-              placeholder={TranslateText({ point: 'navBar_search' })}
-              classes={{
-                root: classes.inputRoot,
-                input: classes.inputInput,
-              }}
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
           <div className={classes.grow}/>
           <div className={classes.sectionDesktop}>
             <IconButton onClick={handleTranslation} aria-label="show 4 new mails" color="inherit">
