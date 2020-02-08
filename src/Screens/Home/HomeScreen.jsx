@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
 import ReactSwipe from 'react-swipe'
+import { Form } from 'Components/Form/Form'
 import { CardList } from 'Components/AppStore/CardList'
 
 const useStyles = makeStyles(theme => ({
@@ -57,7 +58,7 @@ const HomeScreen = () => {
         ref={el => (reactSwipeEl = el)}
       >
         <div className={classes.containerScreen}>
-          ONE
+          <Form />
         </div>
         <div className={classes.containerScreen}>
           <div className="container">
