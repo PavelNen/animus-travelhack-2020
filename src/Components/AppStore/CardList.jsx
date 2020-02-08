@@ -1,20 +1,37 @@
+import { useEffect } from 'react'
 import * as React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Card } from './Card'
+import PonaminaluActions from 'Stores/Ponaminalu/Actions'
 import './style.scss'
 
-const List = ({ match, history }) => (
-  <ul className="card-list">
-    {cardData.map(card => (
-      <Card
-        key={card.id}
-        isSelected={match.params.id === card.id}
-        history={history}
-        {...card}
-      />
-    ))}
-  </ul>
-)
+const List = ({ match, history }) => {
+  const { events } = useSelector(state => state.ponaminalu)
+  const dispatch = useDispatch()
+
+
+  console.log('heh')
+
+  useEffect(() => {
+    dispatch(PonaminaluActions.fetchEvents())
+  },[])
+
+  console.log(events.length)
+
+  return (
+    <ul className="card-list">
+      {events.map(card => (
+        <Card
+          key={card.id}
+          isSelected={match.params.id === card.id}
+          history={history}
+          card={card}
+        />
+      ))}
+    </ul>
+  )
+}
 
 export const CardList = () => (
   <Router>

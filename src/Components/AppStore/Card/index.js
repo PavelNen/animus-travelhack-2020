@@ -6,7 +6,7 @@ import { useInvertedBorderRadius } from '../utils/use-inverted-border-radius'
 import { useScrollConstraints } from '../utils/use-scroll-constraints'
 import { useWheelScroll } from '../utils/use-wheel-scroll'
 import { closeSpring, openSpring } from './animations'
-import { ContentPlaceholder } from './ContentPlaceholder'
+import { Content } from './Content'
 import { Image } from './Image'
 import { Title } from './Title'
 
@@ -21,8 +21,9 @@ export const Card = memo(
     title,
     category,
     history,
-    pointOfInterest,
-    backgroundColor
+    pointOfInterest = 100,
+    backgroundColor = '#5DBCD2',
+    card,
   }) => {
     const y = useMotionValue(0)
     const zIndex = useMotionValue(isSelected ? 2 : 0)
@@ -71,13 +72,15 @@ export const Card = memo(
             onUpdate={checkZIndex}
           >
             <Image
-              id={id}
+              id={card.subevents[0].image}
               isSelected={isSelected}
               pointOfInterest={pointOfInterest}
               backgroundColor={backgroundColor}
             />
-            <Title title={title} category={category} isSelected={isSelected}/>
-            <ContentPlaceholder/>
+            <Title title={card.title} category={card.categories.map(({ title }) => title)} isSelected={isSelected}/>
+            <Content>
+              {card.description}
+            </Content>
           </motion.div>
         </div>
         {!isSelected && <Link to={id} className={'card-open-link'}/>}

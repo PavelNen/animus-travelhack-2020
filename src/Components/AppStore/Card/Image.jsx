@@ -1,5 +1,6 @@
 import { motion, useInvertedScale } from 'framer-motion'
 import * as React from 'react'
+import { ponaminaluService } from '../../../Services/ponaminaluService'
 import { closeSpring } from './animations'
 
 export const Image = ({
@@ -17,7 +18,7 @@ export const Image = ({
     >
       <motion.img
         className="card-image"
-        src={`images/${id}.jpg`}
+        src={ponaminaluService.getImage(500, 500, id)}
         alt=""
         initial={false}
         animate={
