@@ -4,7 +4,7 @@ import createSagaMiddleware from 'redux-saga'
 const composeEnhancers =
   typeof window === 'object' &&
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose;
+    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({}) : compose
 
 export default (rootReducer, rootSaga) => {
   const middleware = []
@@ -14,7 +14,7 @@ export default (rootReducer, rootSaga) => {
   const sagaMiddleware = createSagaMiddleware()
   middleware.push(sagaMiddleware)
 
-  enhancers.push(applyMiddleware(...middleware));
+  enhancers.push(applyMiddleware(...middleware))
 
   const store = createStore(rootReducer, composeEnhancers(...enhancers))
 

@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { orange } from '@material-ui/core/colors'
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles'
-import { Provider } from 'react-redux'
+import { Provider, useDispatch } from 'react-redux'
 import { BrowserRouter as Router } from 'react-router-dom'
 import RootScreen from 'Screens/Root/RootScreen'
 import createStore from 'Stores'
 import './App.css'
+import ponaminaluActions from './Stores/Ponaminalu/Actions'
 
 const { store } = createStore()
 
@@ -29,13 +30,18 @@ const theme = createMuiTheme({
   },
 })
 
-const App = () =>
-  <Provider store={store}>
+const App = () => {
+  return (
     <ThemeProvider theme={theme}>
-      <Router>
-        <RootScreen/>
-      </Router>
+
+      <Provider store={store}>
+        <Router>
+          <RootScreen/>
+        </Router>
+      </Provider>
     </ThemeProvider>
-  </Provider>
+
+  )
+}
 
 export default App
