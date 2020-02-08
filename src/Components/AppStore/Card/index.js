@@ -83,7 +83,8 @@ export const Card = memo(
             </Content>
           </motion.div>
         </div>
-        {!isSelected && <Link to={id} className={'card-open-link'}/>}
+        {card.id}
+        {!isSelected && <Link to={`${card.id}`} className={'card-open-link'}/>}
       </li>
     )
   },

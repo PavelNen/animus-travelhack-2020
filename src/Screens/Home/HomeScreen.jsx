@@ -3,12 +3,12 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { makeStyles } from '@material-ui/core/styles'
 import PropTypes from 'prop-types'
 import React, { Fragment, useState } from 'react'
-import ReactSwipe from 'react-swipe'
-import styles from 'react-responsive-carousel/lib/styles/carousel.min.css';
+import 'react-responsive-carousel/lib/styles/carousel.css'
 import { Carousel } from 'react-responsive-carousel'
 import './styles.scss'
 import { Form } from 'Components/Form/Form'
 import { CardList } from 'Components/AppStore/CardList'
+import Pager from "react-page-controller";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
 
 const HomeScreen = () => {
   const classes = useStyles()
+  const [index, setIndex] = React.useState(1)
   const [step, setStep] = useState(1)
   let reactSwipeEl
 
@@ -37,26 +38,13 @@ const HomeScreen = () => {
   return (
     <Fragment>
       <CssBaseline/>
-      <Carousel
-        style={{
-          'slide': {
-            backgroundColor: 'none'
-          }
-        }}
-        showThumbs={false}
-        emulateTouch={true}
-        selectedItem={1}
-        showArrows={false}
-        showStatus={false}
-      >
+      <Pager value={index} onRequestChange={i => setIndex(i)}>
         <div className={classes.containerScreen}>
           <Form />
         </div>
         <div className={classes.containerScreen}>
           <div
             style={{
-              overflowY: 'scroll',
-              position: 'absolute',
             }}
             className="container"
           >
@@ -67,7 +55,7 @@ const HomeScreen = () => {
         <div className={classes.containerScreen}>
           THREE
         </div>
-      </Carousel>
+      </Pager>
       {/* <button onClick={() => reactSwipeEl.prev()}>Назад</button> */}
       {/* <button onClick={() => reactSwipeEl.next()}>Вперёд</button> */}
     </Fragment>

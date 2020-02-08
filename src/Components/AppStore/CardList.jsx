@@ -1,14 +1,16 @@
 import { useEffect } from 'react'
 import * as React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, useHistory, useParams } from 'react-router-dom'
 import { Card } from './Card'
 import PonaminaluActions from 'Stores/Ponaminalu/Actions'
 import './style.scss'
 
-const List = ({ match, history }) => {
+const List = () => {
   const { events } = useSelector(state => state.ponaminalu)
   const dispatch = useDispatch()
+  const params = useParams()
+  const history = useHistory()
 
 
   console.log('heh')
@@ -17,14 +19,15 @@ const List = ({ match, history }) => {
     dispatch(PonaminaluActions.fetchEvents())
   },[])
 
-  console.log(events.length)
+  console.log(params)
 
   return (
     <ul className="card-list">
       {events.map(card => (
         <Card
           key={card.id}
-          isSelected={match.params.id === card.id}
+          id={card.id}
+          isSelected={params.id == card.id}
           history={history}
           card={card}
         />
@@ -34,9 +37,7 @@ const List = ({ match, history }) => {
 }
 
 export const CardList = () => (
-  <Router>
-    <Route path={['/:id', '/']} component={List}/>
-  </Router>
+    <List />
 )
 
 const cardData= [

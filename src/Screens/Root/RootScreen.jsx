@@ -24,7 +24,7 @@ const RootScreen = () => {
     <Header/>
     <Suspense fallback={'Loading....'}>
       <Switch>
-        <Route exact path={routes.getHome()} component={HomeScreen}/>
+        <Route exact path={['/:id', routes.getHome()]} component={HomeScreen}/>
         <Route path={routes.getFavorites()} component={FavoritesScreen}/>
       </Switch>
     </Suspense>
