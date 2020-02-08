@@ -1,7 +1,6 @@
 .container {
-  max-width: 990px;
-  flex: 1 1 100%;
-  padding: 45px 25px;
+  height: 100%;
+  overflow: auto;
 }
 
 h1 {
@@ -51,8 +50,8 @@ li {
 
 .card {
   position: relative;
-  padding: 25px;
-  height: 460px;
+  padding: 8px;
+  height: 240px;
   flex: 0 0 40%;
   max-width: 40%;
 }
@@ -191,7 +190,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 300px) {
   .card {
     flex: 1 0 100%;
     max-width: 100%;
