@@ -102,7 +102,7 @@ export const Card = memo(
             <Content>
               <div className={'card-content-buttons'}>
                 <Button variant="contained" color="primary" onClick={() => handleSaveTicket(1)}>
-                Добавить в бумажник
+                Дообавить в избранное
               </Button>
               </div>
                 {card.description}

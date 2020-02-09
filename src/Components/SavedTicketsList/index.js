@@ -61,7 +61,7 @@ export default function SavedTickets () {
     <div className={classes.root}>
       <GridList cellHeight={180} className={classes.gridList}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Сохранённое</ListSubheader>
+          <ListSubheader component="div">Избранное</ListSubheader>
         </GridListTile>
         {tickets.map((card, index) => (
           <SavedCard key={card.id} card={card} index={index} handleRemove={handleRemove}/>
