@@ -18,11 +18,13 @@ const List = () => {
     }))
   },[filters])
 
-  console.log(params)
+  console.log(events)
+
+  console.log(events.length === 0);
 
   return (
     <ul className="card-list">
-      {events.map(card => (
+      {events.length !== 0 ? events.map(card => (
         <Card
           key={card.id}
           id={card.id}
@@ -30,7 +32,13 @@ const List = () => {
           history={history}
           card={card}
         />
-      ))}
+      ))
+      :
+        <>
+          Никаких мероприятий по заданным параметрам нет. Свайпни влево для
+          того, чтобы задать параметры, а затем вернись сюда.
+        </>
+      }
     </ul>
   )
 }
