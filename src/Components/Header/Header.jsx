@@ -20,6 +20,7 @@ const useStyles = makeStyles(theme => ({
   },
   logoComponent: {
     // margin: theme.spacing(1)
+    height: 36
   },
   rightComponent: {
     // margin: theme.spacing(1)
@@ -59,7 +60,7 @@ const Header = props => {
   return (
     <header className={classes.root}>
       <div className={classes.logoComponent}>
-        Easy Trip
+        <img src='/logoEz.png' style={{ height: '100%' }} alt='' />
       </div>
       <div className={classes.rightComponent}>
         <Geolocation />

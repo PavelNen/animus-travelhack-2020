@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { BrowserRouter as Router, Route, useHistory, useParams } from 'react-router-dom'
 import { Card } from './Card'
 import PonaminaluActions from 'Stores/Ponaminalu/Actions'
-import Snackbar from 'Components/Snackbar'
+import Snackbar from 'Components/SnackBar'
 import './style.scss'
 
 const List = () => {
