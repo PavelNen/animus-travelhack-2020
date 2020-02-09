@@ -59,7 +59,7 @@ const Header = props => {
   return (
     <header className={classes.root}>
       <div className={classes.logoComponent}>
-        ANIMUS OKO
+        Easy Trip
       </div>
       <div className={classes.rightComponent}>
         <Geolocation />

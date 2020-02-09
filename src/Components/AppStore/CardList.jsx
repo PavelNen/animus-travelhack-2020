@@ -18,10 +18,10 @@ const List = () => {
     }))
   },[filters])
 
-  console.log(params)
-
   return (
-    <ul className="card-list">
+    <Fragment>
+      <Snackbar open={open} setOpen={setOpen} />
+      <ul className="card-list">
       {events.length !== 0 ? events.map(card => (
         <Card
           key={card.id}

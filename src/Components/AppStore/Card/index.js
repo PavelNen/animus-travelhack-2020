@@ -1,7 +1,7 @@
-import Button from '@material-ui/core/Button'
-import { motion, useMotionValue } from 'framer-motion'
 import * as React from 'react'
 import { memo, useRef } from 'react'
+import Button from '@material-ui/core/Button'
+import { motion, useMotionValue } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { useInvertedBorderRadius } from '../utils/use-inverted-border-radius'
 import { useScrollConstraints } from '../utils/use-scroll-constraints'
@@ -25,6 +25,7 @@ export const Card = memo(
     pointOfInterest = 100,
     backgroundColor = '#333333',
     card,
+    openSnackbar,
   }) => {
     const y = useMotionValue(0)
     const zIndex = useMotionValue(isSelected ? 2 : 0)
@@ -56,10 +57,15 @@ export const Card = memo(
         description: card.description,
         event: card.subevents[0],
         categories: card.categories,
+        alias: card.seo.alias,
         amount
       })
 
       localStorage.setItem('saved_tickets', JSON.stringify(tickets))
+
+      openSnackbar()
+
+      history.push('/')
     }
 
     // When this card is selected, attach a wheel event listener
@@ -96,10 +102,7 @@ export const Card = memo(
             <Content>
               <div className={'card-content-buttons'}>
                 <Button variant="contained" color="primary" onClick={() => handleSaveTicket(1)}>
-                1 билет
-              </Button>
-              <Button variant="contained" color="secondary" onClick={() => handleSaveTicket(2)}>
-                 2 билета
+                Добавить в бумажник
               </Button>
               </div>
                 {card.description}

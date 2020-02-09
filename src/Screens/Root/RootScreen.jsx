@@ -20,6 +20,17 @@ const RootScreen = () => {
     dispatch(ponaminaluActions.checkUserSession())
   })
 
+  useEffect(() => {
+    // eslint-disable-next-line no-undef
+    pnwidget.init({
+      affiliate: true,
+      hideHeader: true,
+      hideFooter: true,
+      init: { session: '' },
+      customStyle: true
+    })
+  }, [])
+
   return <Fragment>
     <Header/>
     <Suspense fallback={'Loading....'}>
