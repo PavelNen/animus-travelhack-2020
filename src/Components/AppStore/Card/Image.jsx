@@ -22,7 +22,7 @@ export const Image = ({
         alt=""
         initial={false}
         animate={
-          isSelected ? { x: -20, y: -20 } : { x: -pointOfInterest, y: 0 }
+          isSelected ? { x: -20, y: -20, opacity: 0.3 } : { x: -pointOfInterest, y: 0, opacity: 0.5 }
         }
         transition={closeSpring}
       />

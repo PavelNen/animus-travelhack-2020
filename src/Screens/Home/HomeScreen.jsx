@@ -9,6 +9,7 @@ import './styles.scss'
 import { Form } from 'Components/Form/Form'
 import { CardList } from 'Components/AppStore/CardList'
 import Pager from "react-page-controller";
+import SavedTickets from '../../Components/SavedTicketsList'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -53,7 +54,7 @@ const HomeScreen = () => {
           </div>
         </div>
         <div className={classes.containerScreen}>
-          THREE
+          <SavedTickets />
         </div>
       </Pager>
       {/* <button onClick={() => reactSwipeEl.prev()}>Назад</button> */}

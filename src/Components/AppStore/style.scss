@@ -105,6 +105,14 @@ li {
   overflow: hidden;
 }
 
+.card-content-buttons {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .card-open-link {
   position: absolute;
   top: 0;
@@ -130,7 +138,7 @@ li {
   max-width: 300px;
 }
 
-h2 {
+h3 {
   color: #fff;
   margin: 8px 0;
 }
@@ -166,9 +174,9 @@ h2 {
 }
 
 .content-container {
-  padding: 460px 35px 35px 35px;
+  padding: 340px 35px 35px 35px;
   max-width: 700px;
-  width: 90vw;
+  //width: 90vw;
 }
 
 p {
@@ -190,7 +198,7 @@ p {
   }
 }
 
-@media only screen and (max-width: 300px) {
+@media only screen and (max-width: 400px) {
   .card {
     flex: 1 0 100%;
     max-width: 100%;

@@ -9,7 +9,8 @@ export const Content = React.memo(({children}) => {
       className="content-container"
       style={{ ...inverted, originY: 0, originX: 0 }}
     >
-      {children}
+      <p>{children}</p>
+      <LoremIpsum p={3} avgWordsPerSentence={6} avgSentencesPerParagraph={4} />
     </motion.div>
   )
 })

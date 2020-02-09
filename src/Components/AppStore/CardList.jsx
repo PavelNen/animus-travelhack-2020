@@ -18,8 +18,6 @@ const List = () => {
     }))
   },[filters])
 
-  console.log(params)
-
   return (
     <ul className="card-list">
       {events.map(card => (

@@ -17,7 +17,7 @@ export const Title = ({ title, category, isSelected }) => {
       style={{ ...inverted, originX: 0, originY: 0 }}
     >
       <span className="category">{category}</span>
-      <h2>{title}</h2>
+      <h3>{title}</h3>
     </motion.div>
   )
 }

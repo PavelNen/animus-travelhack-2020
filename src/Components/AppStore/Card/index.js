@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button'
 import { motion, useMotionValue } from 'framer-motion'
 import * as React from 'react'
 import { memo, useRef } from 'react'
@@ -22,7 +23,7 @@ export const Card = memo(
     category,
     history,
     pointOfInterest = 100,
-    backgroundColor = '#5DBCD2',
+    backgroundColor = '#333333',
     card,
   }) => {
     const y = useMotionValue(0)
@@ -45,6 +46,20 @@ export const Card = memo(
       } else if (!isSelected && latest.scaleX < 1.01) {
         zIndex.set(0)
       }
+    }
+
+    function handleSaveTicket (amount) {
+      const tickets = JSON.parse(localStorage.getItem('saved_tickets')) || []
+      tickets.push({
+        id: card.id,
+        title: card.title,
+        description: card.description,
+        event: card.subevents[0],
+        categories: card.categories,
+        amount
+      })
+
+      localStorage.setItem('saved_tickets', JSON.stringify(tickets))
     }
 
     // When this card is selected, attach a wheel event listener
@@ -79,11 +94,18 @@ export const Card = memo(
             />
             <Title title={card.title} category={card.categories.map(({ title }) => title)} isSelected={isSelected}/>
             <Content>
-              {card.description}
+              <div className={'card-content-buttons'}>
+                <Button variant="contained" color="primary" onClick={() => handleSaveTicket(1)}>
+                1 билет
+              </Button>
+              <Button variant="contained" color="secondary" onClick={() => handleSaveTicket(2)}>
+                 2 билета
+              </Button>
+              </div>
+                {card.description}
             </Content>
           </motion.div>
         </div>
-        {card.id}
         {!isSelected && <Link to={`${card.id}`} className={'card-open-link'}/>}
       </li>
     )
