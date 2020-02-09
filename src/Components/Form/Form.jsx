@@ -71,8 +71,8 @@ export const Form = () => {
       valueLabelDisplay="auto"
       valueLabelFormat={timeLabelFormat}
     />
-    
-    <h2 style={{ color: 'grey' }}>Бюджет</h2>
+
+    <h2 style={{ color: 'grey' }}>Бюджет от {budget[0] === 0 ? 'бесплатно' : budget[0]} до {budget[1]}₽</h2>
     <Slider
       value={budget}
       min={0}
