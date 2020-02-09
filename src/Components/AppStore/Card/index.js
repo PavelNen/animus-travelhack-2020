@@ -51,7 +51,7 @@ export const Card = memo(
 
     function handleSaveTicket (amount) {
       const tickets = JSON.parse(localStorage.getItem('saved_tickets')) || []
-      tickets.push({
+       tickets.push({
         id: card.id,
         title: card.title,
         description: card.description,

@@ -34,7 +34,7 @@ export const Form = () => {
     return `${time}:00`
   }
 
-  const [budget, setBudget] = React.useState([0, 100])
+  const [budget, setBudget] = React.useState([0, 10000])
   const handleBudgetChange = (event, newValue) => {
     setBudget(newValue)
   }
@@ -72,7 +72,7 @@ export const Form = () => {
       valueLabelFormat={timeLabelFormat}
     />
 
-    <h2 style={{ color: 'grey' }}>Бюджет от {budget[0] === 0 ? 'бесплатно' : budget[0]} до {budget[1]} ₽</h2>
+    <h2 style={{ color: 'grey' }}>Бюджет от {budget[0]} до {budget[1]} ₽</h2>
     <Slider
       value={budget}
       min={0}
