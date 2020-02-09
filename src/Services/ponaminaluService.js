@@ -26,17 +26,25 @@ const getCategoriesList = () => ponaminaluAPI.get('/v4/categories/list')
  * @param category_id
  * @returns {Promise<AxiosResponse<T>>}
  */
-const getEventsList = ({ min_price, max_price, min_date, max_date, category_id }) => ponaminaluAPI.get(
+const getEventsList = ({
+  min_price = undefined,
+  max_price = undefined,
+  min_date = undefined,
+  max_date = undefined,
+  category_id = undefined
+}) => ponaminaluAPI.post(
   '/v4/events/list',
   {
+    min_price,
+    max_price,
+    max_date,
+    min_date,
+    category_id,
+  },
+  {
     params: {
-      session: 123,
+      session: 'moscowhack872364',
       first_only: true,
-      min_price,
-      max_price,
-      max_date,
-      min_date,
-      category_id,
     }
   }
 )

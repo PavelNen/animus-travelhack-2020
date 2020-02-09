@@ -16,11 +16,11 @@ export function * checkUserSession () {
   }
 }
 
-export function * fetchEvents () {
+export function * fetchEvents (action) {
   yield put(PonaminaluActions.fetchEventsLoading())
   try {
-    const events = yield call(ponaminaluService.getEventsList, {})
-    console.log()
+    console.log(action)
+    const events = yield call(ponaminaluService.getEventsList, action.payload)
     yield put(PonaminaluActions.fetchEventsSuccess(events))
   } catch (e) {
     console.error(e)

@@ -7,17 +7,16 @@ import PonaminaluActions from 'Stores/Ponaminalu/Actions'
 import './style.scss'
 
 const List = () => {
-  const { events } = useSelector(state => state.ponaminalu)
+  const { events, filters } = useSelector(state => state.ponaminalu)
   const dispatch = useDispatch()
   const params = useParams()
   const history = useHistory()
 
-
-  console.log('heh')
-
   useEffect(() => {
-    dispatch(PonaminaluActions.fetchEvents())
-  },[])
+    dispatch(PonaminaluActions.fetchEvents({
+      ...filters
+    }))
+  },[filters])
 
   console.log(params)
 

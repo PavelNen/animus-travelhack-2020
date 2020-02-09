@@ -51,6 +51,16 @@ export const fetchEventsFailure = (state, { errorMessage }) => ({
   eventsErrorMessage: errorMessage,
 })
 
+export const setFilters = (state, { min_price, max_price, min_date, max_date, category_id }) => ({
+  ...state,
+  filters: { min_price, max_price, min_date, max_date, category_id }
+})
+
+export const setGeo = (state, { lat, lon }) => ({
+  ...state,
+  get: { lat, lon }
+})
+
 /**
  * @see https://github.com/infinitered/reduxsauce#createreducer
  */
@@ -62,4 +72,7 @@ export const reducer = createReducer(INITIAL_STATE, {
   [PonaminaluTypes.FETCH_EVENTS_LOADING]: fetchEventsLoading,
   [PonaminaluTypes.FETCH_EVENTS_SUCCESS]: fetchEventsSuccess,
   [PonaminaluTypes.FETCH_EVENTS_FAILURE]: fetchEventsFailure,
+
+  [PonaminaluTypes.SET_FILTERS]: setFilters,
+  [PonaminaluTypes.SET_GEO]: setGeo,
 })

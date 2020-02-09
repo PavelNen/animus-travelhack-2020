@@ -24,10 +24,13 @@ const { Types, Creators } = createActions({
   checkUserSessionSuccess: ['userSession'],
   checkUserSessionFailure: ['errorMessage'],
 
-  fetchEvents: null,
+  fetchEvents: ['payload'],
   fetchEventsLoading: null,
   fetchEventsSuccess: ['events'],
   fetchEventsFailure: ['errorMessage'],
+
+  setFilters: ['min_price', 'max_price', 'min_date', 'max_date', 'category_id'],
+  setGeo: ['lat', 'lon']
 })
 
 export const PonaminaluTypes = Types

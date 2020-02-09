@@ -1,9 +1,9 @@
 import axios from 'axios'
 
 const ponaminaluAPI = axios.create({
-  baseURL: 'https://api-dev.ponominalu.ru',
+  baseURL: 'https://api.ponominalu.ru',
   params: {
-    session: 123,
+    session: 'moscowhack872364',
   },
   headers: {
     // Authorization: 'Token moscowhack872364'
