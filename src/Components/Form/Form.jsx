@@ -59,8 +59,8 @@ export const Form = () => {
   })
 
   return <React.Fragment>
-    <h1 style={{ color: 'grey' }}>Form</h1>
-    <h2 style={{ color: 'grey' }}>Time {`${time[0]}:00`}-{`${time[1]}:00`}</h2>
+    <h1 style={{ color: 'grey' }}>Фильтр мероприятий</h1>
+    <h2 style={{ color: 'grey' }}>Время с {`${time[0]}:00`} до {`${time[1]}:00`}</h2>
 
     <Slider
       value={time}
