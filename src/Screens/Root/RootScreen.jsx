@@ -18,17 +18,32 @@ const RootScreen = () => {
 
   useEffect(() => {
     dispatch(ponaminaluActions.checkUserSession())
-  })
+  }, [])
 
   useEffect(() => {
-    // eslint-disable-next-line no-undef
-    pnwidget.init({
-      affiliate: true,
-      hideHeader: true,
-      hideFooter: true,
-      init: { session: '' },
-      customStyle: true
-    })
+    const scriptId = 'pnwidget-loader'
+    const init = () => {
+      // eslint-disable-next-line no-undef
+      pnwidget.init({
+        affiliate: true,
+        hideHeader: true,
+        hideFooter: true,
+        init: { session: '' },
+        customStyle: true
+      })
+    }
+
+    if (document.getElementById(scriptId)) {
+      init()
+      return
+    }
+
+    const script = document.createElement('script')
+    script.id = scriptId
+    script.src = 'https://widget3.cultserv.ru/static/js/pnwidget_loader.js'
+    script.async = true
+    script.onload = init
+    document.body.appendChild(script)
   }, [])
 
   return <Fragment>

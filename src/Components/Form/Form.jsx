@@ -1,14 +1,7 @@
 import * as React from 'react'
 import './style.scss'
 
-import 'date-fns'
-import { format } from 'date-fns'
-import DateFnsUtils from '@date-io/date-fns'
-
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-} from '@material-ui/pickers'
+ 
 
 /* Material UI Components */
 import Slider from '@material-ui/core/Slider'

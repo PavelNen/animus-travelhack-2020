@@ -1,7 +1,21 @@
 import { mix } from '@popmotion/popcorn'
 import { useDomEvent } from 'framer-motion'
-import { debounce } from 'lodash'
 import { spring } from 'popmotion'
+
+function debounce (fn, wait) {
+  let timeoutId
+  const debounced = function (...args) {
+    if (timeoutId) clearTimeout(timeoutId)
+    timeoutId = setTimeout(() => fn.apply(this, args), wait)
+  }
+  debounced.cancel = () => {
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+      timeoutId = null
+    }
+  }
+  return debounced
+}
 
 // Absolute distance a wheel scroll event can travel outside of
 // the defined constraints before we fire a "snap back" animation
